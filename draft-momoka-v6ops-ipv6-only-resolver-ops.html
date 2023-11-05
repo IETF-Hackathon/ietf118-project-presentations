@@ -54,8 +54,8 @@ Prague
 # Hackathon Plan
         
 Plan:
- - Setup some anycast unbound instances running 1.18.0 supporting draft-momoka-v6ops-ipv6-only-resolver-02.
- - Figure out whether "prefer-ip6: yes" should be set.
+ - Setup some anycast Unbound instances running 1.18.0 supporting draft-momoka-v6ops-ipv6-only-resolver-02
+ - Figure out whether "prefer-ip6: yes" should be set
 
 <div class="my-footer"><p>IETF Hackathon - 2a06:d1c7:: </p></div>       
 ---
@@ -63,10 +63,10 @@ Plan:
 # What got done
         
 What we got done:
- - There now is a public v6 only resolver (with somewhat reasonable rate limits) using a NAT64 pool of 8 addr/host.
- - We tested replaying some dual-stack zones, and noticed the implementation indeed needs prefer-ip6: yes to not use NAT64 for some DS hosts.
- - Looking forward to some evaluation traffic if somebody feels like it; Service will likely remain in place for some time.
- - We need to take a look at NAT64 port exhaustion for resolvers, as port-reuse is not that easy with NAT64.
+ - There now is a public v6 only resolver (with somewhat reasonable rate limits) using a NAT64 pool of 8 addr/host
+ - We tested replaying some dual-stack zones, and noticed the implementation indeed needs prefer-ip6: yes to not use NAT64 for some DS hosts
+ - Looking forward to some evaluation traffic if somebody feels like it; Service will likely remain in place for some time
+ - We need to take a look at NAT64 port exhaustion for resolvers, as port-reuse is not that easy with NAT64
         
 <div class="my-footer"><p>IETF Hackathon - 2a06:d1c7:: </p></div>       
         
