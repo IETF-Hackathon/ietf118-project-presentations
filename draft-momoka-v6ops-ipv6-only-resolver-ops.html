@@ -66,11 +66,41 @@ What we got done:
  - There now is a public v6 only resolver (with somewhat reasonable rate limits) using a NAT64 pool of 8 addr/host.
  - We tested replaying some dual-stack zones, and noticed the implementation indeed needs prefer-ip6: yes to not use NAT64 for some DS hosts.
  - Looking forward to some evaluation traffic if somebody feels like it; Service will likely remain in place for some time.
- - We definately need to take a look at NAT64 port exhaustion for resolvers, as port-reuse is not that easy with NAT64.
+ - We need to take a look at NAT64 port exhaustion for resolvers, as port-reuse is not that easy with NAT64.
         
 <div class="my-footer"><p>IETF Hackathon - 2a06:d1c7:: </p></div>       
         
-    </textarea>
+---
+
+# Using 2a06:d1c7::
+
+<code>
+%&nbsp;dig&nbsp;@2a06:d1c7::&nbsp;A&nbsp;tudelft.nl
+
+;&nbsp;<<>>&nbsp;DiG&nbsp;9.16.42&nbsp;<<>>&nbsp;@2a06:d1c7::&nbsp;A&nbsp;tudelft.nl
+;&nbsp;(1&nbsp;server&nbsp;found)
+;;&nbsp;global&nbsp;options:&nbsp;+cmd
+;;&nbsp;Got&nbsp;answer:
+;;&nbsp;->>HEADER<<-&nbsp;opcode:&nbsp;QUERY,&nbsp;status:&nbsp;NOERROR,&nbsp;id:&nbsp;8731
+;;&nbsp;flags:&nbsp;qr&nbsp;rd&nbsp;ra&nbsp;ad;&nbsp;QUERY:&nbsp;1,&nbsp;ANSWER:&nbsp;1,&nbsp;AUTHORITY:&nbsp;0,&nbsp;ADDITIONAL:&nbsp;1
+
+;;&nbsp;OPT&nbsp;PSEUDOSECTION:
+;&nbsp;EDNS:&nbsp;version:&nbsp;0,&nbsp;flags:;&nbsp;udp:&nbsp;1232
+;;&nbsp;QUESTION&nbsp;SECTION:
+;tudelft.nl.			IN	A
+
+;;&nbsp;ANSWER&nbsp;SECTION:
+tudelft.nl.		600	IN	A	130.161.128.82
+
+;;&nbsp;Query&nbsp;time:&nbsp;33&nbsp;msec
+;;&nbsp;SERVER:&nbsp;2a06:d1c7::#53(2a06:d1c7::)
+;;&nbsp;WHEN:&nbsp;Sun&nbsp;Nov&nbsp;05&nbsp;10:00:13&nbsp;CET&nbsp;2023
+;;&nbsp;MSG&nbsp;SIZE&nbsp;&nbsp;rcvd:&nbsp;55
+</code>
+
+<div class="my-footer"><p>IETF Hackathon - 2a06:d1c7:: </p></div>       
+
+</textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
     </script>
     <script>
