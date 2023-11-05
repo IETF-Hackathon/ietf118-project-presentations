@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IETF Hackathon - [Project Name] </title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+      div.left-column  { width: 49%; float: left; }
+      div.right-column { width: 49%; float: right; }
+
+      div.right-column ~ p { clear: both; }
+      div.right-column ~ ul { clear: both; }
+      div.my-footer {
+        border-top: 1px solid #ccc;
+        font-size: 10pt;
+        text-align: center;
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        height: 30px;
+        width: 100%;
+      }
+      
+      div.my-footer p {
+        margin-top: 10px;
+        height: 30px;
+      }
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle
+
+# IETF Hackathon
+      
+IETF 118
+      
+4-5 November 2023
+
+Prague
+
+      
+---
+
+# Hackathon Plan
+        
+Plan:
+ - Setup some anycast unbound instances running 1.18.0 supporting draft-momoka-v6ops-ipv6-only-resolver-02.
+ - Figure out whether "prefer-ip6: yes" should be set.
+
+<div class="my-footer"><p>IETF Hackathon - 2a06:d1c7:: </p></div>       
+---
+
+# What got done
+        
+What we got done:
+ - There now is a public v6 only resolver (with somewhat reasonable rate limits) using a NAT64 pool of 8 addr/host.
+ - We tested replaying some dual-stack zones, and noticed the implementation indeed needs prefer-ip6: yes to not use NAT64 for some DS hosts.
+ - Looking forward to some evaluation traffic if somebody feels like it; Service will likely remain in place for some time.
+ - We definately need to take a look at NAT64 port exhaustion for resolvers, as port-reuse is not that easy with NAT64.
+        
+<div class="my-footer"><p>IETF Hackathon - 2a06:d1c7:: </p></div>       
+        
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
